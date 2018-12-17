@@ -8,7 +8,8 @@ class SignInPage extends Component {
   submit = ({emailInput, passwordInput}) => {
     axios.post(`${config.REACT_APP_SIGN_IN_URL}`, {email: emailInput, password: passwordInput})
         .then(res => {
-          console.log(res);
+          const token = res.data.data;
+          console.log(token);
         });
   };
 
