@@ -1,12 +1,18 @@
 import { userTypes } from './';
 
-const signIn = user => ({
-  type: userTypes.SIGN_IN,
-  value: user,
+const signInSuccess = () => ({
+  type: userTypes.SIGN_IN_SUCCESS,
+  value: true,
 });
 
-const signOut = user => ({
+const signInFailed = (error) => ({
+  type: userTypes.SIGN_IN_FAILED,
+  value: error,
+});
+
+const signOut = () => ({
   type: userTypes.SIGN_OUT,
+  value: true
 });
 
-export default { signIn, signOut };
+export default { signInSuccess, signInFailed, signOut };

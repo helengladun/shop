@@ -26,11 +26,11 @@ const validate = values => {
 };
 
 const renderInput = ({
-    input,
-    label,
-    type,
-    meta: { touched, error }
-}) => {
+                       input,
+                       label,
+                       type,
+                       meta: { touched, error }
+                     }) => {
   return (
       <div>
         <input {...input} type={type}/>
@@ -43,20 +43,20 @@ let ContactForm = props => {
   console.log(props);
   const { handleSubmit, reset } = props;
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="emailInput">Your email
-          <Field name="emailInput" component={renderInput} type="email"/>
-        </label>
-      </div>
-      <div>
-        <label htmlFor="passwordInput">Your password
-          <Field name="passwordInput" component={renderInput} type="password"/>
-        </label>
-      </div>
-      <button type="submit">Sign in</button>
-      <button type="button" onClick={reset}>Clear</button>
-    </form>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="emailInput">Your email
+            <Field name="emailInput" component={renderInput} type="email"/>
+          </label>
+        </div>
+        <div>
+          <label htmlFor="passwordInput">Your password
+            <Field name="passwordInput" component={renderInput} type="password"/>
+          </label>
+        </div>
+        <button type="submit">Sign in</button>
+        <button type="button" onClick={reset}>Clear</button>
+      </form>
   );
 };
 

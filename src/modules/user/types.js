@@ -1,7 +1,9 @@
-const SIGN_IN = 'SIGN_IN';
+const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS';
+const SIGN_IN_FAILED = 'SIGN_IN_FAILED';
 const SIGN_OUT = 'SIGN_OUT';
 
 export default {
-  SIGN_IN,
+  SIGN_IN_SUCCESS,
+  SIGN_IN_FAILED,
   SIGN_OUT,
 };
