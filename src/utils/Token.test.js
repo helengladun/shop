@@ -1,4 +1,4 @@
-const MyMethods = require('./Token');
+import MyMethods from './Token';
 
 describe('localStorage', () => {
   beforeEach(() => localStorage.clear());
@@ -22,6 +22,7 @@ describe('localStorage', () => {
   });
 
   it('cleared storage', () => {
+    MyMethods.clearStorage();
     expect(MyMethods.getToken()).toBeNull();
   });
 });

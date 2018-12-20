@@ -14,7 +14,7 @@ const clearLocalStorage = () => {
   localStorage.clear();
 };
 
-module.exports = {
+export default {
   setToken: setTokenToLocalStorage,
   getToken: getTokenFromLocalStorage,
   removeToken: removeTokenFormLocalStorage,
