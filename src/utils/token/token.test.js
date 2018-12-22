@@ -1,4 +1,4 @@
-import MyMethods from './Token';
+import storageMethods from './token';
 
 describe('localStorage', () => {
   beforeEach(() => localStorage.clear());
@@ -10,19 +10,19 @@ describe('localStorage', () => {
 
   it('sets the token', () => {
     const token = 'jfsjsdjkfjsjsd';
-    MyMethods.setToken(token);
-    expect(MyMethods.getToken()).toEqual(token);
+    storageMethods.setToken(token);
+    expect(storageMethods.getToken()).toEqual(token);
   });
 
   it('remove the token', () => {
     const token = 'jfsjsdjkfjsjsd';
-    MyMethods.setToken(token);
-    MyMethods.removeToken('token');
-    expect(MyMethods.getToken()).toBeNull();
+    storageMethods.setToken(token);
+    storageMethods.removeToken('token');
+    expect(storageMethods.getToken()).toBeNull();
   });
 
   it('cleared storage', () => {
-    MyMethods.clearStorage();
-    expect(MyMethods.getToken()).toBeNull();
+    storageMethods.clearStorage();
+    expect(storageMethods.getToken()).toBeNull();
   });
 });

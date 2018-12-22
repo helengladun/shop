@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import styled from 'styled-components';
 
@@ -25,12 +25,7 @@ const validate = values => {
   return errors
 };
 
-const renderInput = ({
-                       input,
-                       label,
-                       type,
-                       meta: { touched, error }
-                     }) => {
+const renderInput = ({ input, label, type, meta: { touched, error }}) => {
   return (
       <div>
         <input {...input} type={type}/>
@@ -40,7 +35,6 @@ const renderInput = ({
 };
 
 let ContactForm = props => {
-  console.log(props);
   const { handleSubmit, reset } = props;
   return (
       <form onSubmit={handleSubmit}>
