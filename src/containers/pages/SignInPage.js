@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import * as userActions from '../../modules/user/actions/index'
 import { login } from "../../modules/user/effects/login";
 import SignInPopup from "../../components/SignIn/SignInPopup";
+import SignInFormContainer from '../../containers/forms/SignInForm';
 
 class SignInPageContainer extends Component {
 
@@ -28,7 +29,11 @@ class SignInPageContainer extends Component {
       return <div>You have been already autorized <a href="/">Go to main page</a></div>
     }
 
-    return <SignInPopup handleSubmit={user.login} errors={user.errors}/>
+    return (
+        <SignInPopup errors={user.errors}>
+          <SignInFormContainer onSubmit={login}/>
+        </SignInPopup>
+    )
   }
 }
 

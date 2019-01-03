@@ -20,6 +20,5 @@ export default function(values) {
   //   errors.password = `Must be at least 6 symbols`
   // }
 
-  console.log(errors);
   return errors;
 }

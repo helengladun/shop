@@ -8,19 +8,21 @@ import validate from '../../utils/signin/validate';
 const renderInput = ({ input, label, type, meta: { touched, error }, ...custom}) => {
   return (
       <TextField
-        // helperText={label}
         label={label}
         error={touched && error}
         {...input}
         {...custom}
-      />
+      >{touched && error && <span>{error}</span>}
+      </TextField>
   );
 };
 
 let SignInForm = props => {
-  const { handleSubmit, reset, errors } = props;
+  console.log('props', props);
+  const { handleSubmit, reset, error } = props;
   return (
       <form className="form form_signin" onSubmit={handleSubmit}>
+        {error && <strong>{error}</strong>}
         <div>
             <Field
                 name="email"

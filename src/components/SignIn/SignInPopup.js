@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import SignInFormContainer from '../../containers/forms/SignInForm';
 
 export default class SignInPopup extends Component {
   state = {
@@ -29,13 +27,8 @@ export default class SignInPopup extends Component {
           >
             <DialogTitle>Sign In Form</DialogTitle>
             <DialogContent>
-              <SignInFormContainer handleSubmit={this.props.handleSubmit}/>
+              {this.props.children}
             </DialogContent>
-            <DialogActions>
-              {/*<Button onClick={this.props.onClose} color="primary">*/}
-                {/*Cancel*/}
-              {/*</Button>*/}
-            </DialogActions>
           </Dialog>
         </div>
     );
