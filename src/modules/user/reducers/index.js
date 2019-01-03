@@ -1,1 +1,3 @@
-export * from './reducers';
+import userReducer from './reducers';
+
+export default userReducer;

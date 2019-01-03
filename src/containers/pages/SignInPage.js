@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import ContactForm from "../forms/ContactFormContainer";
 import {connect} from 'react-redux';
-import axios from "axios";
-import config from "../../config";
 import * as userActions from '../../modules/user/actions/index'
 import { login } from "../../modules/user/effects/login";
+import SignInPopup from "../../components/SignIn/SignInPopup";
 
 class SignInPageContainer extends Component {
 
   getTokenFromLocalStorage = () => {
     return localStorage.getItem('token');
+  };
+
+  setTokenToLocalStorage = (token) => {
+    localStorage.setItem('token', token);
   };
 
   // logout = () => {
@@ -18,29 +20,30 @@ class SignInPageContainer extends Component {
   // };
 
   render() {
-    const { login } = this.props;
-    const authToken = this.getTokenFromLocalStorage('token');
+    const { user, auth } = this.props;
+    console.log('user', user);
+    const authToken =  auth.token;
 
     if (authToken) {
       return <div>You have been already autorized <a href="/">Go to main page</a></div>
     }
 
-    return <ContactForm onSubmit={login}/>
+    return <SignInPopup handleSubmit={user.login} errors={user.errors}/>
   }
 }
 
-const MapStateToProps = (state) => {
+const mapStateToProps = (state) => {
+  console.log(state);
   return {
-    signIn: state.signIn,
-    errors: state.errors,
-    token: state.token,
+    user: state.user,
+    auth: state.auth,
     form: state.form
   }
 };
 
-const MapDispatchToProps = {
+const mapDispatchToProps = {
   login: login,
   ...userActions
 };
 
-export default connect(MapStateToProps, MapDispatchToProps)(SignInPageContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(SignInPageContainer);

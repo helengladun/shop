@@ -1,0 +1,7 @@
+/* @todo add sass preprocessor */
+.form .form__btn-wrapper {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

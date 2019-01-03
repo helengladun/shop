@@ -7,7 +7,7 @@ export default (state = defaultState, action) => {
     case actions.SIGN_IN_SUCCESS:
       return { ...state, signIn: action.signIn, token: action.token};
     case actions.SIGN_IN_FAILED:
-      return { ...state, signIn: action.signIn};
+      return { ...state, signIn: action.signIn, errors: action.errors};
     case actions.SIGN_OUT:
       return { ...state, signIn: action.signIn};
     default:
