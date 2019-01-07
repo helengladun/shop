@@ -14,11 +14,6 @@ export default function(values) {
   ) {
     errors.email = 'Invalid email address';
   }
-  // if (
-  //     values.password.length < 6
-  // ) {
-  //   errors.password = `Must be at least 6 symbols`
-  // }
 
   return errors;
 }

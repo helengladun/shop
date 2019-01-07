@@ -17,7 +17,6 @@ export default class SignInPopup extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
         <div>
           <Dialog

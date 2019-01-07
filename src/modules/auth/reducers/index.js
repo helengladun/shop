@@ -1,1 +1,2 @@
-export * from './token.js';
+import authReducer from './token';
+export default authReducer;

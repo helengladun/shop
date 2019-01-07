@@ -4,8 +4,3 @@ export const setToken = token => ({
   type: SET_TOKEN,
   token: token
 });
-
-export default {
-  setToken
-}
-

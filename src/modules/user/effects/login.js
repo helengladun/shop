@@ -9,8 +9,14 @@ export const login = ({emailInput, passwordInput}) => async (dispatch, getState)
     const token = res.data.data;
     dispatch(userActions.signInSuccess());
     dispatch(authActions.setToken(token));
-    // window.location.assign('/');
+    localStorage.setItem('token', token);
+
+    setTimeout(() => {
+      window.location.assign('/')
+    }, 2000)
+
   } catch (e) {
+    console.log(e.response);
     const message = e.response.data.message;
     dispatch(userActions.signInFailed(message));
   }

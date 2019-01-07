@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import user from './modules/user/reducers/index';
-import auth from './modules/auth/reducers/token';
+import auth from './modules/auth/reducers/index';
 import thunk from 'redux-thunk';
 
 // const customMiddleware = store => next => action => {

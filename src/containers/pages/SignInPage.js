@@ -3,16 +3,12 @@ import {connect} from 'react-redux';
 import * as userActions from '../../modules/user/actions/index'
 import { login } from "../../modules/user/effects/login";
 import SignInPopup from "../../components/SignIn/SignInPopup";
-import SignInFormContainer from '../../containers/forms/SignInForm';
+import SignInForm from '../../containers/forms/SignInForm';
 
-class SignInPageContainer extends Component {
+class SignInPage extends Component {
 
   getTokenFromLocalStorage = () => {
     return localStorage.getItem('token');
-  };
-
-  setTokenToLocalStorage = (token) => {
-    localStorage.setItem('token', token);
   };
 
   // logout = () => {
@@ -21,24 +17,28 @@ class SignInPageContainer extends Component {
   // };
 
   render() {
-    const { user, auth } = this.props;
-    console.log('user', user);
-    const authToken =  auth.token;
+    const { user, login, auth } = this.props;
+    const authToken = this.getTokenFromLocalStorage();
+    let popupContent = <SignInForm onSubmit={login} userErrors={user.errors}/>;
 
+    console.log(authToken);
     if (authToken) {
-      return <div>You have been already autorized <a href="/">Go to main page</a></div>
+       popupContent = <div>You have been already autorized <a href="/">Go to main page</a></div>
+    }
+
+    if (auth.token) {
+      popupContent = <div>You have been successfully autorized</div>
     }
 
     return (
-        <SignInPopup errors={user.errors}>
-          <SignInFormContainer onSubmit={login}/>
+        <SignInPopup>
+          {popupContent}
         </SignInPopup>
     )
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     user: state.user,
     auth: state.auth,
@@ -51,4 +51,4 @@ const mapDispatchToProps = {
   ...userActions
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignInPageContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(SignInPage);
